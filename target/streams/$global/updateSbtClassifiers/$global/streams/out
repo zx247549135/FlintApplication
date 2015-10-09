@@ -611,9 +611,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-agent;0.13.5!test-agent.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.5!apply-macro.jar
-[debug] :: resolution report :: resolve 509ms :: artifacts dl 21ms
+[debug] :: resolution report :: resolve 1764ms :: artifacts dl 42ms
 [debug] 	report for flintapplication#flintapplication$sbt_2.10;1.0 default produced in /home/zx/FlintApplication/target/resolution-cache/reports/flintapplication-flintapplication$sbt_2.10-default.xml
-[debug] 	resolve done (509ms resolve - 21ms download)
+[debug] 	resolve done (1764ms resolve - 42ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: flintapplication#flintapplication$sources_2.10;1.0
 [debug] 	confs: [default]
@@ -955,6 +955,6 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_8_2;0.13.5!precompiled-2_8_2.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_9_2;0.13.5!precompiled-2_9_2.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_9_3;0.13.5!precompiled-2_9_3.jar(src)
-[debug] :: resolution report :: resolve 157ms :: artifacts dl 21ms
+[debug] :: resolution report :: resolve 466ms :: artifacts dl 41ms
 [debug] 	report for flintapplication#flintapplication$sources_2.10;1.0 default produced in /home/zx/FlintApplication/target/resolution-cache/reports/flintapplication-flintapplication$sources_2.10-default.xml
-[debug] 	resolve done (157ms resolve - 21ms download)
+[debug] 	resolve done (466ms resolve - 41ms download)
