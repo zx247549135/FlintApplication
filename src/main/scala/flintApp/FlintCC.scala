@@ -3,6 +3,7 @@ package flintApp
 import java.io.{DataOutputStream, ByteArrayOutputStream}
 
 import org.apache.hadoop.io.WritableComparator
+import org.apache.spark.storage.StorageLevel
 import org.apache.spark.{HashPartitioner, SparkConf, SparkContext}
 import org.apache.spark.rdd.{RDD, ShuffledRDD}
 
@@ -122,12 +123,10 @@ object FlintCC {
     val lines = ctx.textFile(args(0),args(1).toInt)
     val iterations = args(2).toInt
 
-    val edges1 = lines.map{ s =>
+    val edges = lines.map{ s =>
       val parts = s.split("\\s+")
       (parts(0).toInt, parts(1).toInt)
     }
-    val edges2 = edges1.map(eMsg => (eMsg._2,eMsg._1))
-    val edges = (edges1 ++ edges2).distinct()
 
     val g = edges.groupByKey().asInstanceOf[ShuffledRDD[Int,_,_]]
       .setKeyOrdering(ordering).asInstanceOf[RDD[(Int,Iterable[Int])]]
@@ -140,7 +139,7 @@ object FlintCC {
         vtx._2.foreach(dos.writeInt)
       })
       Iterator(chunk)
-    }).cache()
+    }).persist(StorageLevel.MEMORY_AND_DISK_SER)
 
     g.foreach(_ => Unit)
 
